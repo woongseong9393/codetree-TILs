@@ -1,40 +1,47 @@
 #include <iostream>
-#define MAX_NUM 100
+#include <vector>
+
 using namespace std;
 
 int n, m;
-int map[MAX_NUM][MAX_NUM] = {0,};
+int arr[101][101];
 
-int dx[4] = {0, 1, 0, -1};
-int dy[4] = {-1, 0, 1, 0};
+//북 동 남 서
+int dx[4] = {-1,0,1,0};
+int dy[4] = {0,1,0,-1};
 
-bool inRange(int x, int y){
-    return 0 <= x && x < m && 0 <= y && y < n; 
+bool inRange(int x ,int y){
+    if(x >= 0 && x < n && y >= 0 && y < m){
+        return true;
+    }
+    return false;
 }
 
 int main() {
-    // 여기에 코드를 작성해주세요.
-    cin >> n >> m;
-    int dir = 1;
-    int x = 0, y = 0;
-    int total = n*m;
-
-    for(int idx = 1; idx <= total; idx++){
-        map[y][x] = idx;
-        int nextX = x + dx[dir];
-        int nextY = y + dy[dir];
-        if(!inRange(nextX, nextY) || map[nextY][nextX] != 0){
-            dir = (dir + 1) % 4;
+    cin>>n>>m;
+    arr[0][0] = 1;
+    int x,y;
+    x = 0, y = 0;
+    int dict = 1;
+    int idx = 1;
+    for(; idx< n * m;){
+        int nextX = x + dx[dict];
+        int nextY = y + dy[dict];
+        if(inRange(nextX,nextY) == false || arr[nextX][nextY] != 0){
+            dict = (dict + 1) % 4;
+            continue;
         }
-        x = x + dx[dir];
-        y = y + dy[dir];
+        idx++;
+        x = nextX;
+        y = nextY;
+        arr[x][y] = idx;
     }
 
-    for(int i = 0; i < n; i++){
-        for(int j = 0; j < m; j++){
-            cout << map[i][j] << ' ';
+    for(int i = 0;i<n;i++){
+        for(int j = 0;j<m;j++){
+            cout<<arr[i][j]<<" ";
         }
-        cout << '\n';
+        cout<<endl;
     }
 
     return 0;
