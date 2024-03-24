@@ -17,8 +17,9 @@ int main() {
     cin >> n >> m;
     int dir = 1;
     int x = 0, y = 0;
+    int total = n*m;
 
-    for(int idx = 1; idx <= n * m; idx++){
+    for(int idx = 1; idx <= total; idx++){
         map[y][x] = idx;
         int nextX = x + dx[dir];
         int nextY = y + dy[dir];
