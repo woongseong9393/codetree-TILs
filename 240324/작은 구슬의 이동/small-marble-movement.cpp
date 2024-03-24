@@ -2,16 +2,20 @@
 
 using namespace std;
 
+int n, t;
+
 int dx[4] = {0, 1, 0, -1};
 int dy[4] = {1, 0, -1, 0};
 
+bool inRange(int x, int y){
+    return 1 <= x && x <= n && 1 <= y && y <= n;
+}
+
 int main() {
     // 여기에 코드를 작성해주세요.
-    int n, t;
     int r, c;
     int dir;
     char d;
-    bool chk = 0;
 
     cin >> n >> t;
     cin >> r >> c >> d;
@@ -22,17 +26,13 @@ int main() {
     else dir = 3;
 
     for(int i = 1; i <= t; i++){
-        if((((r==1||r==n)&&dy[dir])||((c==1||c==n)&&dx[dir])) && chk == 0){
-            dir = (dir + 2) % 4;
-            chk = 1;
-        }
-        else{
+        if(inRange(c + dx[dir], r + dy[dir])){
             r += dy[dir];
             c += dx[dir];
-            chk = 0;
         }
-        //cout << r << ' ' << c << endl;
-
+        else{
+            dir = (dir + 2) % 4;
+        }
     }
 
     cout << r << ' ' << c;
