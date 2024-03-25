@@ -1,5 +1,5 @@
 #include <iostream>
-#define MAX_NUM 101
+#define MAX_NUM 102
 
 using namespace std;
 
