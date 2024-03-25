@@ -1,5 +1,5 @@
 #include <iostream>
-#define MAX_NUM 100
+#define MAX_NUM 101
 
 using namespace std;
 
@@ -11,10 +11,6 @@ int dx[4] = {0, 1, 0, -1};
 int dy[4] = {1, 0, -1, 0};
 
 bool mp[MAX_NUM][MAX_NUM] = {0,};
-
-bool inRange(int r, int c){
-    return 0 <= r && r < N && 0 <= c && c <N;
-}
 
 bool chk_state(int r, int c){
     int nextR, nextC;
