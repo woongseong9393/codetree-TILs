@@ -39,8 +39,6 @@ int main() {
     }
     cin >> K; 
 
-    K = 9;
-
     dirc = (K-1) / N;
 
     if(dirc == 0){
