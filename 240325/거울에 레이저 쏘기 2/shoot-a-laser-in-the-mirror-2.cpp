@@ -39,6 +39,8 @@ int main() {
     }
     cin >> K; 
 
+    K = 9;
+
     dirc = (K-1) / N;
 
     if(dirc == 0){
@@ -48,7 +50,7 @@ int main() {
         x = N-1;
         y = (K-1)%N;
     } else if(dirc == 2){
-        y = 0;
+        y = N-1;
         x = N-1 - (K-1)%N;
     } else{
         x = 0;
@@ -62,6 +64,8 @@ int main() {
        dirc = change_dir(mp[y][x], dirc);
        x += dx[dirc];
        y += dy[dirc];
+
+       //cout << x << ' ' << y << endl;
     }
 
     cout << cnt;
