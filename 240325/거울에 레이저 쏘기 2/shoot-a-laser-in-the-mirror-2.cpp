@@ -7,7 +7,7 @@ int x, y;
 
 /*S W N E*/
 int dx[4] = {0, -1, 0, 1};
-int dy[4] = {-1, 0, 1, 0};
+int dy[4] = {1, 0, -1, 0};
 
 bool inRange(int x, int y){
     return 0 <= x && x < N && 0 <= y && y < N;
@@ -39,7 +39,7 @@ int main() {
     }
     cin >> K; 
 
-    dirc = K%N ? K/N + 1 : K/N;
+    dirc = (K-1) / N;
 
     if(dirc == 0){
         y = 0;
@@ -55,7 +55,7 @@ int main() {
         y = N-1 - (K-1)%N;
     }
 
-    int cnt = 1;
+    int cnt = 0;
 
     while(inRange(x, y)){
        cnt++;
