@@ -4,12 +4,9 @@
 |---|---|---|
 |[Samsung / 시뮬레이션 / dx dy technique](https://www.codetree.ai/missions?missionId=13)|70xp|![어려움][hard]|
 
-
-
-
-
-
-
+1. Bit 연산인 XOR를 사용해서 반사되는 형태를 빠르게 연산할 수 있다.
+   방향 case가 4개이므로 00, 01, 10, 11 XOR을 사용하기 쉽다.
+3. 케이스 분할 시, 나눗셈이 아니라 단순 범위값으로 깔끔하게 처리가 가능하다.
 
 [b5]: https://img.shields.io/badge/Bronze_5-%235D3E31.svg
 [b4]: https://img.shields.io/badge/Bronze_4-%235D3E31.svg
