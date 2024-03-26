@@ -23,7 +23,10 @@ int main() {
 
     sort(v.begin(), v.end(), cmp);
 
-    cout << get<0>(v[0]) << ' ' << get<1>(v[0]);
+    //cout << get<0>(v[0]) << ' ' << get<1>(v[0]);
+
+    tie(ID, score) = v[0];
+    cout << ID << ' ' << score; 
 
     return 0;
 }
