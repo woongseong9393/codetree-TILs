@@ -8,9 +8,18 @@ using namespace std;
 int k, n;
 string T;
 string temp;
-bool chk;
 
 vector<string> v;
+
+bool Startswith(string a, string b){        // a is prefix
+    if(a.size() > b.size()) return false;
+
+    for(int i = 0; i < a.size(); i++){
+        if(a[i] != b[i]) return false;
+    }
+
+    return true;
+}
 
 int main() {
     // 여기에 코드를 작성해주세요.
@@ -19,11 +28,7 @@ int main() {
 
     for(int i = 0; i < n; i++){
         cin >> temp;
-        chk = 1;
-        for(int word = 0; word < T.size(); word++){
-            if(T[word] != temp[word]) chk = 0;
-        }
-        if(chk) v.push_back(temp);
+        if(Startswith(T, temp)) v.push_back(temp);
     }
 
     sort(v.begin(), v.end());
