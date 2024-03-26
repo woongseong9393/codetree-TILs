@@ -8,7 +8,7 @@ class Stock{
         string name;
         int code;
         
-        Stock(string name = "codetree", int code = 88){
+        Stock(string name = "codetree", int code = 50){
             this->name = name;
             this->code = code;
         }
