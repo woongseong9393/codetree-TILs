@@ -31,9 +31,9 @@ void Choose(int line_idx){
         choosed.push_back(line_idx);
         Choose(line_idx + 1);
         choosed.pop_back();
-    } else{
-        Choose(line_idx + 1);
-    }
+    } 
+
+    Choose(line_idx + 1);
 
     return;
 }
