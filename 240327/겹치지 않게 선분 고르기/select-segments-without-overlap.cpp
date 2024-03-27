@@ -14,7 +14,7 @@ bool chk_avail(int line_idx){
         return true;
     }
     for(const auto& element : choosed){
-        if(lines[element].first <= lines[line_idx].first && lines[element].second >= lines[line_idx].second){
+        if(!(lines[element].first > lines[line_idx].second || lines[element].second < lines[line_idx].first)){
             return false;
         }
     }
