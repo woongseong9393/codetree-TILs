@@ -29,7 +29,6 @@ int main() {
         if(um.find(look) != um.end()){
             if(um[look] > 0){
                 cnt++;
-                um[look]--;
             }
         }
     }
