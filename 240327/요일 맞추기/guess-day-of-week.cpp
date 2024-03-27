@@ -53,8 +53,8 @@ int main() {
             d--;
             enum_wed = (enum_wed+6) % 7;
             if(d == 0){
-                d = num_of_days[m];
                 m--;
+                d = num_of_days[m];
             }
         }
         
