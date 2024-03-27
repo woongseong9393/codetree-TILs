@@ -21,7 +21,7 @@ int main() {
 
     int ans = check_min(a, b, c) - check_min(11, 11, 11); 
 
-    if(ans){
+    if(ans >= 0){
         cout << ans;
     } else{
         cout << -1;
