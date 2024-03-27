@@ -1,66 +1,50 @@
 #include <iostream>
 #include <string>
-#include <sstream>
+#include <algorithm>
 #include <vector>
+#include <sstream>
+#include <cstdlib>
 
 using namespace std;
 
 int num_of_days[13] = {0, 31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+int m1, d1, m2, d2;
 
+int elapsed;
+
+string bunch = " Sun, Mon, Tue, Wed, Thu, Fri, Sat ";
 vector<string> v;
-string buffer;
 
-string weth = "Sun,Mon,Tue,Wed,Thu,Fri,Sat";
+int cal_day(int m, int d){
+    int res = 0;
+    for(int i = 1; i < m; i++){
+        res += num_of_days[i];
+    }
+    res += d;
 
-int m1, m2, d1, d2;
-int m, d, enum_wed = 1;
-bool dirc = true;
+    return res;
+}
 
 int main() {
-    // 여기에 코드를 작성해주세요.
-    istringstream ss1(weth);
+    bunch.erase(remove(bunch.begin(), bunch.end(), ' '), bunch.end());
 
-    while(getline(ss1, buffer, ',')){
-        v.push_back(buffer);
-    }
+    istringstream ss1(bunch);
+    string buf;
+    
+
     cin >> m1 >> d1 >> m2 >> d2;
 
-    if(m1 > m2){
-        dirc = false;
-    } else if(m1 == m2){
-        if(d1 > d2){
-            dirc = false;
-        }
+    while(getline(ss1, buf, ',')){
+        v.push_back(buf);
     }
 
-    m = m1;
-    d = d1;
+    elapsed = cal_day(m2, d2) - cal_day(m1, d1);
 
-    while(1){
-        if(m == m2 && d == d2){
-            cout << v[enum_wed];
-            break;
-        }
-
-        if(dirc){
-            d++;
-            enum_wed = (enum_wed+1) % 7;
-            if(d > num_of_days[m]){
-                d = 1;
-                m++;
-            }
-        } else{
-            d--;
-            enum_wed = (enum_wed+6) % 7;
-            if(d == 0){
-                m--;
-                d = num_of_days[m];
-            }
-        }
-        
+    if(elapsed < 0){
+        cout << v[(1 + 7 - (abs(elapsed) % 7))%7];
+    } else{
+        cout << v[(1 + elapsed%7)%7];
     }
-
-
 
     return 0;
 }
