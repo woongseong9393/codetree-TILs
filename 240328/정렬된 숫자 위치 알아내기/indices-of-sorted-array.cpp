@@ -8,6 +8,8 @@ using namespace std;
 vector<tuple<int, int>> v;
 int N;
 
+int ans[1000];
+
 int main() {
     // 여기에 코드를 작성해주세요.
     cin >> N;
@@ -20,10 +22,13 @@ int main() {
     sort(v.begin(), v.end());
 
     for(int i = 0; i < N; i++){
-        for(int j = 0; j < N; j++){
-            if(i == get<1>(v[j])) cout << j + 1 << ' ';
-        }
+        ans[get<1>(v[i])] = i + 1;
     }
-    
+
+    for(int i = 0; i < N; i++){
+        cout << ans[i] << ' ';
+    }
+
+
     return 0;
 }
