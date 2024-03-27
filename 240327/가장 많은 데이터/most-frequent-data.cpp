@@ -19,6 +19,7 @@ int main() {
         cin >> str1;
         if(um.find(str1) == um.end()){
             um[str1] = 1;
+            ans = max(ans, um[str1]);
         } else{
             um[str1]++;
             ans = max(ans, um[str1]);
