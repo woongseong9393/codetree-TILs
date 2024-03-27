@@ -7,7 +7,8 @@ int N;
 vector<int> v;
 
 void make_binary(int n){
-    if(n == 0){
+    if(n/2 == 0){
+        v.push_back(n);
         return;
     }
 
@@ -20,12 +21,8 @@ void make_binary(int n){
 int main() {
     // 여기에 코드를 작성해주세요.
     cin >> N;
-
-    if(N){
-        make_binary(N);
-    } else{
-        v.push_back(0);
-    }
+    
+    make_binary(N);
 
     for(const auto& element : v){
         cout << element;
