@@ -21,7 +21,11 @@ int main() {
     // 여기에 코드를 작성해주세요.
     cin >> N;
 
-    make_binary(N);
+    if(N){
+        make_binary(N);
+    } else{
+        v.push_back(0);
+    }
 
     for(const auto& element : v){
         cout << element;
