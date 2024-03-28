@@ -15,7 +15,7 @@ int main() {
     }
 
     int ans = 0;
-    int wifi_s = 0, wifi_f = 0;
+    int wifi_s = -1, wifi_f = -1;
     for(int i = 0; i < n; i++){
         if(ppl[i] == 1 && wifi_f < i){
             wifi_s = i + m;
