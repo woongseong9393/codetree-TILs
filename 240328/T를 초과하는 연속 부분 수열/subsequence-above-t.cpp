@@ -19,11 +19,12 @@ int main() {
         if(i >= 1 && arr[i] > t && arr[i-1] < arr[i]){
             cnt++;
         } else if(arr[i] <= t){
-            ans = max(ans, cnt);
             cnt = 0;
         } else {
             cnt = 1;
         }
+
+        ans = max(ans, cnt);
     }
 
     cout << ans;
