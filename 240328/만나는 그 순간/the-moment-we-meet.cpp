@@ -5,8 +5,8 @@ using namespace std;
 int N, M, dist;
 char dir;
 
-int A[1001] = {0,};
-int B[1001] = {0,};
+int A[1000001] = {0,};
+int B[1000001] = {0,};
 
 int main() {
     // 여기에 코드를 작성해주세요.
