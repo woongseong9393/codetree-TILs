@@ -16,12 +16,10 @@ int main() {
 
     int ans = 0, cnt = 0;
     for(int i = 0; i < n; i++){
-        if(i >= 1 && arr[i] > t && arr[i-1] < arr[i]){
+        if(arr[i] > t){
             cnt++;
-        } else if(arr[i] <= t){
-            cnt = 0;
         } else {
-            cnt = 1;
+            cnt = 0;
         }
 
         ans = max(ans, cnt);
