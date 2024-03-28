@@ -24,13 +24,13 @@ void BFS(){
 
         int x = curr_pos.first;
         int y = curr_pos.second;
-        visited[y][x] = 1;
 
         for(int i = 0; i < 4; i++){
             int newx = x + dx[i];
             int newy = y + dy[i];
             if(inRange(newx, newy)){
                 if(map[newy][newx] == 1 && visited[newy][newx] == 0){
+                    visited[newy][newx] = 1;
                     q.push(make_pair(newx, newy));
                 }
             }
@@ -47,6 +47,7 @@ int main() {
         }
     }
 
+    visited[0][0] = 1;
     q.push(make_pair(0, 0));
     BFS();
 
