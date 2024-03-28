@@ -40,7 +40,7 @@ int main() {
     int t = idx_A < idx_B ? idx_A : idx_B;
 
     bool chk = 0;
-    for(int i = 1; i <= t; i++){
+    for(int i = 1; i < t; i++){
         if(A[i] == B[i]){
             cout << i;
             chk = 1;
