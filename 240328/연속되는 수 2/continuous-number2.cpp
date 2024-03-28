@@ -25,7 +25,7 @@ int main() {
             st = i;
         }
         if(i == N){
-            ans = max(ans, N - st);
+            ans = max(ans, N - st + 1);
         }
     }
 
