@@ -17,7 +17,7 @@ int main() {
         else num_even++;
     }
 
-    cout << num_even << ' ' << num_odd << endl;
+    //cout << num_even << ' ' << num_odd << endl;
 
     while(true){
         if(num_even > num_odd){
