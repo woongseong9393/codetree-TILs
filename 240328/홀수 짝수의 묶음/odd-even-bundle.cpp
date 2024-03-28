@@ -19,7 +19,7 @@ int main() {
 
     while(true){
         if(num_even >= num_odd){
-            ans = num_odd + num_even;
+            ans = num_odd * 2 + 1;
             break;
         } else if (num_even + 1 == num_odd){
             ans = num_even * 2 - 1;
