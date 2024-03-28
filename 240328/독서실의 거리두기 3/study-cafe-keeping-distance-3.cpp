@@ -15,15 +15,13 @@ int main() {
     cin >> str1;
 
     int cnt = 0;
-    for(int i = 0; i < N; i++){
+    for(int i = 1; i < N; i++){
         if(str1[i] == '0'){
             cnt++;
         }
         else {
-            if(cnt > 0){
-                //cout << cnt << endl;
-                v.push_back(cnt);
-            }
+            //cout << cnt << endl;
+            v.push_back(cnt);
             cnt = 0;
         }
     }
