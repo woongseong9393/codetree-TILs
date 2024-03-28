@@ -17,17 +17,13 @@ int main() {
         cin >> arr[i];
     }
 
-    int dist, cnt, curr;
+    int cnt = 1;
     for(int i = 0; i < N; i++){
-        curr = arr[i];
-        cnt = 1;
-        dist = 1;
-        for(int j = i + 1; j < N; j++){
-            if(curr + dist == arr[j]){
-                curr = arr[j];
-                dist++;
-                cnt++;
-            }
+        if(arr[i-1] < arr[i]){
+            cnt++;
+        }
+        else{
+            cnt = 1;
         }
         ans = max(ans, cnt);
     }
