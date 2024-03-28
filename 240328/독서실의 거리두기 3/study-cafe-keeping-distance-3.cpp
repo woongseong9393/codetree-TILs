@@ -21,7 +21,7 @@ int main() {
         }
         else {
             if(cnt > 0){
-                v.push_back(cnt);
+                v.push_back(cnt + 1);
             }
             cnt = 0;
         }
