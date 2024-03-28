@@ -24,6 +24,9 @@ int main() {
             ans = max(ans, i - st);
             st = i;
         }
+        if(i == N){
+            ans = max(ans, N - st);
+        }
     }
 
     cout << ans;
