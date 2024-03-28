@@ -18,11 +18,8 @@ int main() {
     }
 
     while(true){
-        if(num_even == num_odd + 1){
+        if(num_even >= num_odd){
             ans = num_odd + num_even;
-            break;
-        } else if(num_even >= num_odd){
-            ans = num_odd * 2;
             break;
         } else if (num_even + 1 == num_odd){
             ans = num_even * 2 - 1;
