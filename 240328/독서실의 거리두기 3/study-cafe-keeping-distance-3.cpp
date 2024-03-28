@@ -21,16 +21,17 @@ int main() {
         }
         else {
             if(cnt > 0){
-                v.push_back(cnt + 1);
+                //cout << cnt << endl;
+                v.push_back(cnt);
             }
             cnt = 0;
         }
     }
 
     sort(v.begin(), v.end());
-    v.back() = v.back() % 2 ? v.back() / 2 + 1 : v.back() / 2;
+    v.back() = v.back() % 2 == 1 ? v.back() / 2 : v.back() / 2 - 1;
     sort(v.begin(), v.end());
     
-    cout << v[0];
+    cout << v[0] + 1;
     return 0;
 }
