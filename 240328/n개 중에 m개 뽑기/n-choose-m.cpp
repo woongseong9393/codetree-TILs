@@ -4,20 +4,24 @@ using namespace std;
 
 int N, M;
 vector<int> v;
-void Combi(int curr_M, int ch_idx){
-    if(curr_M == M){
-        for(const auto& elem : v){
-            cout << elem << ' ';
+void Combi(int curr_n, int cnt){
+    if(curr_n == N+1){
+        if(cnt==M){
+            for(auto element : v) {
+                cout << element << ' ';
+            }
+            cout << '\n';
         }
-        cout << '\n';
         return;
     }
 
-    for(int k = ch_idx; k <= N; k++){
-        v.push_back(k);
-        Combi(curr_M + 1, k + 1);
-        v.pop_back();
-    }
+    // case 1
+    v.push_back(curr_n);
+    Combi(curr_n + 1, cnt + 1);
+    v.pop_back();
+
+    // case 2
+    Combi(curr_n + 1, cnt);
 
     return;    
 }
@@ -25,6 +29,6 @@ void Combi(int curr_M, int ch_idx){
 int main() {
     // 여기에 코드를 작성해주세요.
     cin >> N >> M;
-    Combi(0, 1);
+    Combi(1, 0);
     return 0;
 }
