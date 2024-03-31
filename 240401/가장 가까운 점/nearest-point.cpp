@@ -15,17 +15,17 @@ int main() {
     cin >> N >> M;
     for(int i = 0; i < N; i++){
         cin >> x >> y;
-        pq.push(make_tuple(x + y, y, x));
+        pq.push(make_tuple(x + y, x, y));
     }
 
     int dist;
     for(int i = 0; i < N; i++){
-        tie(dist, y, x) = pq.top();
+        tie(dist, x, y) = pq.top();
         pq.pop();
-        pq.push(make_tuple(dist + 4, y + 2, x + 2));
+        pq.push(make_tuple(dist + 4, x + 2, y + 2));
     }
 
-    tie(dist, y, x) = pq.top();
+    tie(dist, x, y) = pq.top();
 
     cout << x << ' ' << y;
 
