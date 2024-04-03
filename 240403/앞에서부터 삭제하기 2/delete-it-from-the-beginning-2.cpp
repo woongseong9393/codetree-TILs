@@ -7,7 +7,7 @@ using namespace std;
 
 int N;
 long long sum = 0;
-double avg = INT_MIN;
+long double avg = -1;
 
 priority_queue<int> pq;
 int arr[100000];
@@ -29,9 +29,10 @@ int main() {
         }
         temp_sum = sum + pq.top();
         avg = avg > temp_sum / (N - i - 2) ? avg : temp_sum / (N - i - 2);
+        //cout << avg << endl;
     }
 
-    printf("%.2lf", avg);
+    printf("%.2Lf", avg);
 
     return 0;
 }
