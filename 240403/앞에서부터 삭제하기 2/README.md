@@ -29,6 +29,8 @@
 [p5]: https://img.shields.io/badge/Platinum_5-%2376DDD8.svg
 [p4]: https://img.shields.io/badge/Platinum_4-%2376DDD8.svg
 [p3]: https://img.shields.io/badge/Platinum_3-%2376DDD8.svg
+
+
 [p2]: https://img.shields.io/badge/Platinum_2-%2376DDD8.svg
 [p1]: https://img.shields.io/badge/Platinum_1-%2376DDD8.svg
 [passed]: https://img.shields.io/badge/Passed-%23009D27.svg
@@ -36,3 +38,9 @@
 [easy]: https://img.shields.io/badge/쉬움-%235cb85c.svg?for-the-badge
 [medium]: https://img.shields.io/badge/보통-%23FFC433.svg?for-the-badge
 [hard]: https://img.shields.io/badge/어려움-%23D24D57.svg?for-the-badge
+
+-----
+* 고려사항
+  1. N의 값이 크므로 N^2의 풀이법은 무조건 불가이다.(완전탐색 X)
+  2. 앞에서 빼면서 priority queue를 사용하는 것이 어렵기 때문에 뒤에서부터 고려한다.
+  3. long double -> LF 처리와 나눗셈 전 double 변환 중요! -> 코테 시, 소수 관련 나오면 소수 결과값 테스트케이스 입력으로 다시 확인하자. 
