@@ -6,8 +6,8 @@
 using namespace std;
 
 int N;
-long long sum = 0;
-long double avg = -1;
+long double sum = 0;
+long double avg = INT_MIN;
 
 priority_queue<int> pq;
 int arr[100000];
@@ -17,19 +17,21 @@ int main() {
     cin >> N;
     for(int i = 0; i < N; i++){
         cin >> arr[i];
-        pq.push(-arr[i]);
-        sum += arr[i];
     }
 
-    for(int i = 0; i < N - 2; i++){
-        long double temp_sum;
-        sum -= arr[i];
-        if(-arr[i] == pq.top()){
-            pq.pop();
-        }
-        temp_sum = sum + pq.top();
-        avg = avg > temp_sum / (N - i - 2) ? avg : temp_sum / (N - i - 2);
-        //cout << avg << endl;
+    sum += arr[N-1] + arr[N-2];
+    pq.push(-arr[N-1]);
+    pq.push(-arr[N-2]);
+
+    avg = sum + pq.top();
+
+    for(int i = N - 3; i >= 0; i--){
+        sum += arr[i];
+        pq.push(-arr[i]);
+
+        long double temp_avg = (sum + pq.top()) / (N - i - 1);
+
+        avg = avg > temp_avg ? avg : temp_avg;
     }
 
     printf("%.2Lf", avg);
