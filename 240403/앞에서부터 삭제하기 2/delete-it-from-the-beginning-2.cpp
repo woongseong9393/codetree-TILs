@@ -22,7 +22,7 @@ int main() {
     }
 
     for(int i = 0; i < N - 2; i++){
-        int temp_sum;
+        double temp_sum;
         sum -= arr[i];
         if(-arr[i] == pq.top()){
             pq.pop();
