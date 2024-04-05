@@ -45,3 +45,4 @@ Priority_Queue를 푸는 문제
 2. pq size값을 비교하기 위해서는 int 캐스팅이 중요하다.
 3. 답지에서는 midean값을 선언하고, 이 값을 업데이트한다. lower PQ와 higer PQ의 top 값을 뽑아서 기존 midean 값을 설정한 뒤 이를 정렬한다.
 4. int nums[] = {median, arr[i], new_cand}; 와 같은 스킬도 사용하기 편할 것 같다.
+5. 여러개의 테스트 케이스에서는 함수보다 나이브한 작성법이 더욱 편리하다. pq를 새로 선언하지 못해 비워주는 함수를 만들어야 했다.
