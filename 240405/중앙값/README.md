@@ -36,3 +36,12 @@
 [easy]: https://img.shields.io/badge/쉬움-%235cb85c.svg?for-the-badge
 [medium]: https://img.shields.io/badge/보통-%23FFC433.svg?for-the-badge
 [hard]: https://img.shields.io/badge/어려움-%23D24D57.svg?for-the-badge
+
+
+-------------------------------
+Priority_Queue를 푸는 문제
+------------------------------
+1. pq를 2개 사용해서 값을 업데이트 하는 것이 어려웠다. high면 high -> low로 하나씩 구현해야한다.
+2. pq size값을 비교하기 위해서는 int 캐스팅이 중요하다.
+3. 답지에서는 midean값을 선언하고, 이 값을 업데이트한다. lower PQ와 higer PQ의 top 값을 뽑아서 기존 midean 값을 설정한 뒤 이를 정렬한다.
+4. int nums[] = {median, arr[i], new_cand}; 와 같은 스킬도 사용하기 편할 것 같다.
