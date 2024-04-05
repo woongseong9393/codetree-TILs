@@ -57,7 +57,8 @@ int main() {
         pq.push(make_pair(cnt, -K));
     }
 
-    cout << -pq.top().second << ' ' << pq.top().first;
+    if(pq.empty()) cout << 1 << ' ' << 0;
+    else cout << -pq.top().second << ' ' << pq.top().first;
 
     return 0;
 }
