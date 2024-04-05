@@ -21,16 +21,17 @@ int dx[4] = {0, 1, 0, -1};
 int dy[4] = {1, 0, -1, 0};
 
 int DFS(int x, int y, int cnt){
+    int temp_cnt = cnt;
     for(int i = 0; i < 4; i++){
         int newx = x + dx[i];
         int newy = y + dy[i];
         if(inRange(newx, newy) && mp[newy][newx] == 1 && visited[newy][newx] == 0){
             visited[newy][newx] = 1;
-            cnt += DFS(newx, newy, cnt);
+            temp_cnt += DFS(newx, newy, cnt);
         }
     }
-
-    cnt++;
+    
+    cnt = temp_cnt + 1;
 
     return cnt;
 }
@@ -50,6 +51,7 @@ int main() {
     for(int i = 0; i < coord.size(); i++){
         int x = coord[i].first;
         int y = coord[i].second;
+
         if(visited[y][x]){
             continue;
         } else{
