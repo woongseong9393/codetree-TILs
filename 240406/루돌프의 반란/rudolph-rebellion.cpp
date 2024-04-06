@@ -30,6 +30,7 @@ int calc_dist(pair<int, int> p1, pair<int, int> p2){
     return a*a + b*b;
 }
 
+
 // rudolf -> santa
 int find_dirc_r(pair<int, int> a, pair<int, int> b){
     int dist_min = INT_MAX;
@@ -50,7 +51,7 @@ int find_dirc_r(pair<int, int> a, pair<int, int> b){
 }
 
 int find_dirc_s(pair<int, int> a){
-    int dist_min = INT_MAX;
+    int dist_min = calc_dist(a, rudolf_loc);
     int res = -1;
 
     //cout << "curr cord " << a.first <<' ' << a.second << endl;
@@ -72,8 +73,15 @@ int find_dirc_s(pair<int, int> a){
     return res;
 }
 
+void print_santa_score(){
+    //cout << endl;
+    for(int i = 1; i <= P; i++){
+        cout << santa_state[i].first << ' ';
+    }
+    //cout << endl;
+}
+
 void printMAP(){
-    cout << '\n';
     for(int i = 1; i <= N; i++){
         for(int j = 1; j <= N; j++){
             if(i == rudolf_loc.first && j == rudolf_loc.second){
@@ -83,7 +91,9 @@ void printMAP(){
             }
         }
         cout << '\n';
-    }   
+    }
+    print_santa_score();
+    cout << '\n';
 }
 
 void move_rudolf(){
@@ -204,7 +214,7 @@ void move_santa(){
 
         if(curr_r == rudolf_loc.first && curr_c == rudolf_loc.second){
             santa_state[i].first += D;
-            santa_state[i].second = 2;
+            santa_state[i].second = 1;
 
             curr_r += dy[collap_dirc] * D;
             curr_c += dx[collap_dirc] * D;
@@ -261,12 +271,6 @@ bool chk_santa_state(){
         }
     }
     return res;
-}
-
-void print_santa_score(){
-    for(int i = 1; i <= P; i++){
-        cout << santa_state[i].first << ' ';
-    }
 }
 
 int main() {
