@@ -110,6 +110,10 @@ void order_knight(int num, int dirc){
         int curr_n = q.front();
         q.pop();
 
+        if(!possible(curr_n, dirc)){
+            return;
+        }
+
         int temp_r = knight_loc[curr_n].first;
         int temp_c = knight_loc[curr_n].second;
         int temp_h = knight_size[curr_n].first;
@@ -120,9 +124,6 @@ void order_knight(int num, int dirc){
                 int next = mp_kni[temp_r + i + dy[dirc]][temp_c + j + dx[dirc]];
                 if(next > 0 && visited[next] == 0 ){
                     visited[next] = 1;
-                    if(!possible(next, dirc)){
-                        return;
-                    }
                     q.push(next);
                 }
             }
