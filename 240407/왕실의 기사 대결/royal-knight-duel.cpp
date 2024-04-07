@@ -37,14 +37,8 @@ bool possible(int num, int dirc){
     int kni_h = knight_size[num].first;
     int kni_w = knight_size[num].second;
 
-    //cout << "possible check : " << num << endl;
-    //cout << " r c h w " << kni_r << ' ' << kni_c << ' ' << kni_h << ' ' << kni_w << endl;
-    //cout << "dy dx " << dy[dirc] << ' ' << dx[dirc] << endl;
-    //cout << kni_r + kni_h - 1  + dy[dirc] << endl;
-    //cout << kni_c + kni_w - 1 + dx[dirc] << endl;
     if(1 > kni_r + dy[dirc] || kni_r + kni_h - 1  + dy[dirc] > L ||
      1 > kni_c + dx[dirc]|| kni_c + kni_w - 1 + dx[dirc] > L){
-        //cout << "not possible : inrange " << endl;
         return false;
     }
     for(int i = 0; i < kni_h; i++){
@@ -86,7 +80,6 @@ void write_knight_loc(int kni_num, int dirc, bool pushed = 0){
     }
 
     if(pushed){
-        //cout << "damage : " << kni_num << ' ' << damage << endl;
         knight_hel[kni_num] -= damage; 
         knight_damage[kni_num] += damage;
     }
@@ -97,7 +90,6 @@ void write_knight_loc(int kni_num, int dirc, bool pushed = 0){
 }
 
 void order_knight(int num, int dirc){
-    //cout << "order : " << num << ' ' << dirc << endl;
     if(knight_hel[num] <= 0){
         return;
     }
@@ -128,13 +120,16 @@ void order_knight(int num, int dirc){
                 int next = mp_kni[temp_r + i + dy[dirc]][temp_c + j + dx[dirc]];
                 if(next > 0 && visited[next] == 0 ){
                     visited[next] = 1;
-                    //cout << "next : " << next << endl;
+                    if(!possible(next, dirc)){
+                        return;
+                    }
                     q.push(next);
                 }
             }
         }
     }
 
+    /*
     for(int i = 1; i <= 30; i++){
         if(visited[i]){
             if(!possible(i, dirc)){
@@ -142,6 +137,7 @@ void order_knight(int num, int dirc){
             }
         }
     }
+    */
     
     // knights can be pushed
     for(int i = 1; i <= N; i++){
