@@ -18,8 +18,8 @@ int player_dist[11] ={0,};
 bool player_state[11] ={0,};
 
 /*U D R L*/
-int dx[5] = {0, 0, 1, -1, 0};
-int dy[5] = {-1, 1, 0, 0, 0};
+int dx[5] = {0, 0, 0, 1, -1};
+int dy[5] = {0, -1, 1, 0, 0};
 
 
 
@@ -85,7 +85,7 @@ int calc_dist(pair<int, int> a, pair<int, int> b){
 }
 
 int calc_dist_sq(pair<int, int> a, pair<int, int> b){
-    return (a.first-b.first)*(a.first-b.first) + (a.second-b.second)*(a.second-b.second);
+    return max(abs(a.first - b.first), abs(a.second - b.second));
 }
 
 pair<int, int> find_min_square(){
@@ -142,9 +142,10 @@ void move_player(){
 
         player_loc[i] = make_pair(new_r, new_c);
 
-        if(dirc == 4){
+        if(dirc == 0){
             continue;
         }
+
         player_dist[i]++;
     
         if(player_loc[i] == exit_loc){
