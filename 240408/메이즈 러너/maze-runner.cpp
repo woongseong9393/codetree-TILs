@@ -9,6 +9,7 @@ using namespace std;
 int N, M, K;
 int mp[11][11] = {0,};
 int mp_player[11][11] = {0,};
+vector<int> v_player[11][11];
 
 pair<int, int> player_loc[11];
 pair<int, int> exit_loc;
@@ -35,9 +36,11 @@ bool chk_state(){
 
 void init_player_mp(){
     memset(mp_player, 0, sizeof(mp_player));
+    memset(v_player, 0, sizeof(v_player));
     for(int i = 1; i <= M; i++){
         if(player_state[i] == 0){
-            mp_player[player_loc[i].first][player_loc[i].second] = -i; 
+            mp_player[player_loc[i].first][player_loc[i].second] = -i;
+            v_player[player_loc[i].first][player_loc[i].second].push_back(i);
         }
     }
 
@@ -68,6 +71,7 @@ void printMAP(){
     for(int i = 1; i <= M; i++){
         cout << player_dist[i] << ' ';
     }
+    cout << endl;
     cout << endl;
 }
 
@@ -189,12 +193,16 @@ void turn_square(){
     //cout << "selected start : " << start_pt.first << ' ' << start_pt.second << endl;
 
     int temp_mp[11][11]={0,};
+    vector<int> temp_vp[11][11];
     
     for(int i = 0; i < sq_size; i++){
         for(int j = 0; j < sq_size; j++){
             if(mp[start_pt.first + i][start_pt.second + j]){
                 temp_mp[i][j] = mp[start_pt.first + i][start_pt.second + j];
                 mp[start_pt.first + i][start_pt.second + j] = 0;
+            } else if(mp_player[start_pt.first + i][start_pt.second + j] < 0) {
+                temp_vp[i][j] = v_player[start_pt.first + i][start_pt.second + j];
+                temp_mp[i][j] = mp_player[start_pt.first + i][start_pt.second + j];
             } else{
                 temp_mp[i][j] = mp_player[start_pt.first + i][start_pt.second + j];
             }
@@ -214,8 +222,11 @@ void turn_square(){
                 exit_loc.second = start_pt.second + org_j;
             } else if(temp_mp[i][j] < 0){
                 mp[start_pt.first + org_i][start_pt.second + org_j] = 0;
-                player_loc[-temp_mp[i][j]].first = start_pt.first + org_i;
-                player_loc[-temp_mp[i][j]].second = start_pt.second + org_j;
+
+                for(int ppp = 0; ppp < temp_vp[i][j].size(); ppp++){
+                    player_loc[temp_vp[i][j][ppp]].first = start_pt.first + org_i;
+                    player_loc[temp_vp[i][j][ppp]].second = start_pt.second + org_j;
+                }
             } else{
                 mp[start_pt.first + org_i][start_pt.second + org_j] = temp_mp[i][j];
             }
