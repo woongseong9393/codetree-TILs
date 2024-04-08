@@ -170,20 +170,25 @@ void turn_square(){
 
     //cout << "PERSON : " << person.first << ' ' << person.second << endl;
     //cout << "EXIT : " << exit_loc.first << ' ' << exit_loc.second << endl;
-    //cout << "SQSIZE : " << sq_size << endl;
+   // cout << "SQSIZE : " << sq_size << endl;
 
     bool chk = false;
     for(int i = 1; i <= N - sq_size + 1; i++){
         for(int j = 1; j <= N - sq_size + 1; j++){
-            if(i <= person.first && person.first < i + sq_size 
-            && i <= exit_loc.first && exit_loc.first < i + sq_size){
-                if(j <= person.second && person.second < j + sq_size 
-                && j <= exit_loc.second && exit_loc.second < j + sq_size){
-                    start_pt.first = i;
-                    start_pt.second = j;
-                    chk = true;
-                    break;
+            if(i <= exit_loc.first && exit_loc.first < i + sq_size && 
+            j <= exit_loc.second && exit_loc.second < j + sq_size ){
+                for(int ki = 0; ki < sq_size; ki++){
+                    for(int kj = 0; kj < sq_size; kj++){
+                        if(mp_player[i + ki][j + kj] < 0){
+                            start_pt.first = i;
+                            start_pt.second = j;
+                            chk = true;
+                            break;
+                        }
+                    }
+                    if(chk) break;
                 }
+                if(chk) break;
             }
         }
         if(chk){
