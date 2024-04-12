@@ -8,7 +8,7 @@ int N;
 int dx[8] = {1, 2, 2, 1, -1, -2, -2, -1};
 int dy[8] = {-2, -1, 1, 2, 2, 1, -1, -2};
 bool visited[100][100] = {0,};
-int step[100][100];
+int step[100][100] = {0, };
 
 bool inRange(int x, int y){
     return 0 <= x && x < N && 0 <= y && y < N;
@@ -44,7 +44,7 @@ int main() {
     cin >> r1 >> c1 >> r2 >> c2;
 
     visited[r1-1][c1-1] = 1;
-    q.push(make_pair(r1-1, c1-1));
+    q.push(make_pair(c1-1, r1-1));
 
     step[r2-1][c2-1] = -1;
     step[r1-1][c1-1] = 0;
@@ -52,6 +52,14 @@ int main() {
     BFS();
 
     cout << step[r2-1][c2-1];
+    /*
+    for(int i = 0 ; i < N; i++){
+        for(int j = 0; j < N; j++){
+            cout << step[i][j] << ' ';
+        }
+        cout << endl;
+    }
+    */
 
 
     return 0;
