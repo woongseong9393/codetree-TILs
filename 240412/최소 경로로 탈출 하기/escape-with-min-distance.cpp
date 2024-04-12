@@ -18,6 +18,9 @@ bool inRange(int x, int y){
 }
 
 void BFS(int x, int y, int step){
+    if(x == M-1 && y == N-1){
+        return;
+    }
     for(int i = 0; i < 4; i++){
         int nx = x + dx[i];
         int ny = y + dy[i];
