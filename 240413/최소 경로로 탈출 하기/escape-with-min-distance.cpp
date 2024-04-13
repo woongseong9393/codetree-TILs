@@ -64,13 +64,6 @@ int main() {
     visited[0][0] = 0;
     q.push({0,0});
     BFS();
-
-    for(int i = 0; i < N; i++){
-        for(int j = 0; j < M; j++){
-            cout << visited[i][j] << ' ';
-        }
-        cout << endl;
-    }
     
     cout << visited[N-1][M-1];
 
