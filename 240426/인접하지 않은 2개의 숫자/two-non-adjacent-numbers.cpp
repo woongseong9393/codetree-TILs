@@ -17,7 +17,7 @@ int main() {
     int res = INT_MIN;
 
     for(int i = 0; i < N - 2; i++){
-        for(int j = i + 1; j < N; j++){
+        for(int j = i + 2; j < N; j++){
             res = max(res, arr[i] + arr[j]);
         }
     }
