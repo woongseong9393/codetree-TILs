@@ -19,12 +19,12 @@ int main() {
     char curr = mp[0][0];
 
     if(mp[0][0] != mp[R-1][C-1]){
-        for(int i = 1; i < R; i++){
-            for(int j = 1; j < C; j++){
+        for(int i = 1; i < R-2; i++){
+            for(int j = 1; j < C-2; j++){
                 if(mp[i][j] != curr){
                     for(int k = i + 1; k < R - 1; k++){
-                        for(int l = j + 1; j < C - 1; j++){
-                            if(mp[i][j] == curr){
+                        for(int l = j + 1; l < C - 1; l++){
+                            if(mp[k][l] == curr){
                                 res++;
                             }
                         }
