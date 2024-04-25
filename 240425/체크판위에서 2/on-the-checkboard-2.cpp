@@ -18,13 +18,15 @@ int main() {
     int cnt = 0;
     char curr = mp[0][0];
 
-    for(int i = 1; i < R; i++){
-        for(int j = 1; j < C; j++){
-            if(mp[i][j] != curr){
-                for(int k = i + 1; k < R - 1; k++){
-                    for(int l = j + 1; j < C - 1; j++){
-                        if(mp[i][j] == curr){
-                            res++;
+    if(mp[0][0] != mp[R-1][C-1]){
+        for(int i = 1; i < R; i++){
+            for(int j = 1; j < C; j++){
+                if(mp[i][j] != curr){
+                    for(int k = i + 1; k < R - 1; k++){
+                        for(int l = j + 1; j < C - 1; j++){
+                            if(mp[i][j] == curr){
+                                res++;
+                            }
                         }
                     }
                 }
